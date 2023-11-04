@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Editar Filme</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h2>Editar Filme</h2>
+		<form th:action="@{/editar/{id}(id=${filme.id})}" method="POST">
+			
+      		<input type="text" name="titulo" th:value="${filme.getTitulo()}" placeholder="Titulo" class="form-control mb-4 col-4" />
+      		<input type="text" name="nomeDireito" th:value="${filme.getNomeDiretor()}" placeholder="Direitor" class="form-control mb-4 col-4" />
+      		<input type="text" name="ano" th:value="${filme.getAno()}" placeholder="Ano do Lançamento" class="form-control mb-4 col-4" />
+			
+			
+			<textarea type="text" name="descricao" th:text="${filme.descricao}" placeholder="Descrição"  class="form-textarea form-control mb-4 col-4"></textarea>
+			<textarea type="text" name="poster" th:text="${filme.getPoster()}" placeholder="Link da imagem" class="form-textarea form-control mb-4 col-4"></textarea>
+
+			<button type="submit" class="btn btn-info col-2">Salvar</button>
+		</form>
+		<hr>
+		<a th:href="@{/}">Retornar para a lista de Filmes</a>
+	</div>
+</body>
+</html>
