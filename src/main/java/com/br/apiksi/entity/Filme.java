@@ -30,6 +30,10 @@ public class Filme {
         Director = form.getDirector();
     }
 
+    public Filme() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }

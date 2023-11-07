@@ -1,12 +1,15 @@
 package com.br.apiksi.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 
 public class FilmeDTO {
 
-
+    @JsonProperty("Title")
     private String Title;
+    @JsonProperty("Year")
     private Integer Year;
+    @JsonProperty("Director")
     private String Director;
 
     public String getTitle() {

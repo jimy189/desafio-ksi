@@ -23,7 +23,7 @@ public class FilmeController {
     private FilmeService filmeService;
 
     @PostMapping("/adicionarFilmes")
-    public ResponseEntity<?> create(@Valid @RequestBody FilmeDTO form) throws Exception {
+    public ResponseEntity<?> create(@RequestBody FilmeDTO form) throws Exception {
         filmeService.criar(form);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -35,7 +35,7 @@ public class FilmeController {
 
     @PutMapping("/editar")
     public ResponseEntity<?> editarPessoa(@RequestParam(value = "idFilme" , required = true) long idFilme,
-                                          @Valid @RequestBody FilmeDTO form) {
+                                          @RequestBody FilmeDTO form) {
         filmeService.editar(idFilme, form);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
